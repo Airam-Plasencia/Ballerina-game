@@ -22,4 +22,28 @@ window.onload = function () {
     game = new Game();
     game.start();
   }
-}
+  function handleKeydown(event) {
+
+    const key = event.key;
+    const possibleKeystrokes = [
+      "ArrowUp",
+      "ArrowDown",
+    ];
+
+    // Check if the pressed key is in the possibleKeystrokes array
+    if (possibleKeystrokes.includes(key)) {
+      event.preventDefault();
+
+      // Update player's directionX and directionY based on the key pressed
+      switch (key) {
+        case "ArrowUp":
+          game.player.directionY = -1;
+          break;
+        case "ArrowDown":
+          game.player.directionY = 1;
+          break;
+      }
+    }
+  }
+  window.addEventListener("keydown", handleKeydown);
+};
