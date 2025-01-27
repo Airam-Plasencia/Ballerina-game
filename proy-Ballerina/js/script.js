@@ -1,28 +1,25 @@
 window.onload = function () {
-    const startButton = document.getElementsByClassName("start-button");
-    const restartButton = document.getElementById("restart-button");
+  const startButton = document.getElementsByClassName("start-button")[0];
+  const restartButton = document.getElementsByClassName("restart-button")[0];
+  restartButton.addEventListener("click", function () {
+    
+    restartGame();
+  });
+
   
-    startButton.addEventListener("click", function () {
-      startGame();
-    });
-  
-    function startGame() {
-      console.log("start game");
-    }
-  };
-  window.onload = function () {
-    const startButton = document.getElementById("start-button");
-    const restartButton = document.getElementById("restart-button");
-    let game; 
-  
-    startButton.addEventListener("click", function () {
-      startGame();
-    });
-  
-    function startGame() {
-      console.log("start game");
-      game = new Game(); 
-  
-      game.start(); 
-    }
-  };
+  function restartGame() {
+    location.reload();
+  }
+
+
+  let game;
+
+  startButton.addEventListener("click", function () {
+    startGame();
+  });
+
+  function startGame() {
+    game = new Game();
+    game.start();
+  }
+}

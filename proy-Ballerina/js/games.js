@@ -1,49 +1,51 @@
 class Game {
-    constructor() {
-      this.startScreen = document.getElementById("game-intro");
-      this.gameScreen = document.getElementById("game-screen");
-      this.gameEndScreen = document.getElementsByClassName("game-end");
-      this.player = null;
-      this.height = 600;
-      this.width = 500;
-      this.obstacles = [];
-      this.score = 0;
-      this.lives = 3;
-      this.gameIsOver = false;
-      this.gameIntervalId;
-      this.gameLoopFrequency = Math.round(1000/60); // 60fps
-    }
-  
-    start() {
-      // Set the height and width of the game screen
+  constructor() {
+    this.startScreen = document.getElementsByClassName("game-intro")[0];
+    this.gameScreen = document.getElementsByClassName("game-screen")[0];
+    this.gameEndScreen = document.getElementsByClassName("game-end");
+    this.player = new Player(
+      this.gameScreen,
+      200,
+      500,
+      100,
+      150,
+      ""
+  );
+  this.height = 600;
+  this.width = 850;
+  this.obstacles = [];
+  this.score = 0;
+  this.lives = 3;
+  this.gameIsOver = false;
+  this.gameIntervalId;
+  this.gameLoopFrequency = Math.round(1000 / 60); 
+}
+
+  start() {
+
       this.gameScreen.style.height = `${this.height}px`;
       this.gameScreen.style.width = `${this.width}px`;
-  
-      // Hide the start screen
       this.startScreen.style.display = "none";
-      
-      // Show the game screen
       this.gameScreen.style.display = "block";
-  
-      // Runs the gameLoop on a fequency of 60 times per second. Also stores the ID of the interval.
+
+
       this.gameIntervalId = setInterval(() => {
-        this.gameLoop()
+        this.gameLoop();
       }, this.gameLoopFrequency)
     }
     
-  
+
     gameLoop() {
-      console.log("in the game loop");
-      
-      this.update();
-  
-      // If "gameIsOver" is set to "true" clear the interval to stop the loop
-      if (this.gameIsOver) {
-        clearInterval(this.gameIntervalId)
-      }
+        console.log("in the game loop");
+
+        this.update();
+
+        // If "gameIsOver" is set to "true" clear the interval to stop the loop
+        if (this.gameIsOver) {
+            clearInterval(this.gameIntervalId)
+        }
     }
-  
-    update() {
-      console.log("in the update");
-    }
+  update() {
+    console.log("in the update");
   }
+}

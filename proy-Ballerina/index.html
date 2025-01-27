@@ -8,40 +8,43 @@
   <link rel="stylesheet" href="./styles/styles.css" />
   <title>Ballerina</title>
 </head>
+
 <body>
   <main>
-    <div id="game-logo">
-      <img src="./images/logo-Ballerina.png" alt="" class="logo-img" />
-      <br />
-    </div>
     <div class="game-intro">
-      <div  id="remove-screen">
-        <button class="start-button">START GAME</button>
-        <p class ="space">Use the key space to jump!</p>
-        <img src="./images/space-key-icon-512x154-2yltsbk5.png" alt="" class="arrows-img" />
-      </div>
-      <div class="game-container">
-        <div>
-          <h2>Stats</h2>
-          <p>Score: <span id="score">0</span></p>
-          <p>Lives: <span id="lives">1</span></p>
-          <div id="game-screen"></div>
-        </div>
-      </div>
-      <div class="game-end">
-        <img src="./" alt="" class="logo-img" />
-        <h1>Game Over</h1>
+      <div class="game-logo">
+        <img src="./images/logo-Ballerina.png" alt="" class="logo-img" />
         <br />
-        <button id="restart-button">Restart</button>
-        <div id="by">
-          <p>By: Airam Plasencia Mendoza</p>
+        <div class="center-start">
+          <button class="start-button">START GAME</button>
+          <p class="space">Use the key space to jump!</p>
+          <img src="./images/space-key-icon-512x154-2yltsbk5.png" alt="" class="space-key" />
         </div>
       </div>
     </div>
+    <div class="game-container">
+      <div class="score">
+        <h2>Stats</h2>
+        <p>Score: <span id="score">0</span></p>
+        <p>Lives: <span id="lives">1</span></p>
+      </div>
+      <div class="game-screen"></div>
+    </div>
+    <div class="game-end">
+      <img src="./" alt="" class="logo-img" />
+      <h1>Game Over</h1>
+      <br />
+      <button class="restart-button">Restart</button>
+      <div class="by">
+        <p>By: Airam Plasencia Mendoza</p>
+      </div>
+    </div>
+    </div>
+
   </main>
   <script type="text/javascript" src="./js/games.js"></script>
-  <script type="text/javascript" src="./js/players.js"></script>
   <script type="text/javascript" src="./js/script.js"></script>
+  <script type="text/javascript" src="./js/players.js"></script>
   <script type="text/javascript" src="./js/obstacle.js"></script>
 </body>
 
