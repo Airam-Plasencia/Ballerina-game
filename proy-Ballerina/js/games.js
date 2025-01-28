@@ -23,9 +23,10 @@ class Game {
     this.gameIntervalId;
     this.gameLoopFrequency = Math.round(1000 / 60);
     this.scoreIntervalId = null;
-    this.obstacleFrequency = 0.90;  
+    this.obstacleSpawnInterval = 2000;
     this.timeElapsed = 0;
   }
+
 
   start() {
 
@@ -42,20 +43,17 @@ class Game {
     }, this.gameLoopFrequency)
     this.scoreIntervalId = setInterval(() => {
       if (!this.gameIsOver) {
-        this.score++; 
+        this.score++;
         document.getElementById("score").textContent = this.score;
       }
-    }, 100);  
+    }, 100);
     setInterval(() => {
       if (!this.gameIsOver) {
-        this.timeElapsed++;  
-        if (this.timeElapsed % 60 === 0) {  
-          this.increaseObstacleFrequency();  
-        }
+        this.spawnObstacle();
       }
-    }, 60000); 
+    }, this.obstacleSpawnInterval);
   }
-  
+
   gameLoop() {
     console.log("in the game loop");
 
@@ -65,10 +63,17 @@ class Game {
     if (this.gameIsOver) {
       clearInterval(this.gameIntervalId);
       clearInterval(this.scoreIntervalId);
+      clearInterval(this.obstacleSpawnInterval);
       this.showGameOverScreen();
       this.backgroundMusic.pause();
     }
+
+    this.timeElapsed++;
+    if (this.timeElapsed % 30 === 0 && this.timeElapsed > 0) {
+      this.increaseObstacleSpawnRate();
+    }
   }
+
   update() {
     this.player.move();
 
@@ -115,7 +120,7 @@ class Game {
   }
 
   showGameOverScreen() {
-    
+
     this.gameScreen.style.display = "none";
     this.gameEndScreen.style.display = "block";
   }
