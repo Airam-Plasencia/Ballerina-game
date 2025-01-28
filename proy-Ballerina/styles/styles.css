@@ -2,11 +2,13 @@ body {
   padding: 0;
   text-align: center;
   background-image: url(../images/Acuarela-Ballerina.jpg);
-  background-size: 1550px;
+  background-size: 1500px;
+  background-size: cover;
 }
 
 h1 {
   color: #124783;
+  font-size: 80px;
 }
 
 .game-logo {
@@ -25,16 +27,19 @@ margin-top: 50px;
   font-size: 1.5em;
   color: #124783;
   font-weight: bold;
+  
+}
+.space-key{
+  width: 70px;
 }
 
 .game-container {
   display:flex;
   padding : 10px;
-  width: 100vw;
-  height: 100vh 
+ 
 }
 .score{
-  padding: 20px 0px;
+  margin-right: 10px;
   color: #124783;
   justify-content: center;
   overflow: hidden;
@@ -80,6 +85,7 @@ body button {
   box-shadow: 0;
   border-radius: 6px;
   margin-bottom: 20px;
+  
 
 }
 
