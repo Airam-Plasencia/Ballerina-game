@@ -10,7 +10,7 @@ class Player {
     this.isJumping = false;
     this.isDodging = false;
     this.jumpFrames = ["./images/Ballerina_04.png"];
-    
+
     this.currentJumpFrame = 0;
     this.currentLeftFrame = 0;
     this.currentRightFrame = 0;
@@ -28,16 +28,10 @@ class Player {
     this.jumpInterval = null;
     this.dodgetimeout = null;
 
-    this.leftImages = [
-      
-      "./images/Ballerina_05.png"
-    ];
-    this.rightImages = [
-      
-      "./images/Ballerina_02.png"
-    ];
-    
-    
+    this.leftImages = [ "./images/Ballerina_05.png" ];
+    this.rightImages = [ "./images/Ballerina_02.png" ];
+
+
     this.animationInterval = null;
   }
 
@@ -52,20 +46,20 @@ class Player {
   stopJumping() {
     this.isJumping = false;
     this.directionY = 0;
-    this.element.src = "./images/Ballerina_01.png"; 
+    this.element.src = "./images/Ballerina_01.png";
   }
 
   startDodging() {
     if (this.isDodging) return;
     this.isDodging = true;
     this.directionY = 4;
-    this.element.src = "./images/Ballerina_03.png"; 
+    this.element.src = "./images/Ballerina_03.png";
   }
 
   stopDodging() {
     this.isDodging = false;
     this.directionY = 0;
-    this.element.src = "./images/Ballerina_01.png"; 
+    this.element.src = "./images/Ballerina_01.png";
     clearTimeout(this.dodgeTimeout);
   }
 
@@ -76,28 +70,27 @@ class Player {
     if (this.isJumping) {
       this.updateJumpImage();
     }
-   
+
     if (this.directionX < 0) {
       this.currentLeftFrame++;
       if (this.currentLeftFrame >= this.leftImages.length) {
-        this.currentLeftFrame = 0; 
+        this.currentLeftFrame = 0;
       }
       this.element.src = this.leftImages[this.currentLeftFrame];
-    } 
-    
+    }
+
     else if (this.directionX > 0) {
       this.currentRightFrame++;
       if (this.currentRightFrame >= this.rightImages.length) {
-        this.currentRightFrame = 0; 
+        this.currentRightFrame = 0;
       }
       this.element.src = this.rightImages[this.currentRightFrame];
-    } 
-    
+    }
+
     else if (!this.isJumping && !this.isDodging) {
       this.element.src = "./images/Ballerina_01.png";
     }
 
-    
     if (this.left < 10) {
       this.left = 10;
     }
@@ -117,10 +110,8 @@ class Player {
     this.updatePosition();
   }
   updateJumpImage() {
-    // Si estamos saltando, usamos la imagen del salto
     if (this.isJumping) {
       this.element.src = this.jumpFrames[this.currentJumpFrame];
-      // Si tienes más imágenes para el salto, puedes agregar más aquí
     }
   }
 

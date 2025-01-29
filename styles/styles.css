@@ -55,9 +55,9 @@ margin-top: 50px;
   background-image: url(../images/Ocean-and-Clouds-Free-Pixel-Art-Backgrounds7.png);
   background-size: cover;
   animation: slide 8s linear infinite;
- 
   
 }
+
 @keyframes slide {
   0% {
     background-position: 0 0px;
@@ -65,12 +65,8 @@ margin-top: 50px;
 
   100% {
     background-position: 390% 0px;
-  }
-
-
-  
+  } 
 }
-
 
 .game-end {
   display: none;
@@ -86,7 +82,6 @@ body button {
   border-radius: 6px;
   margin-bottom: 20px;
   
-
 }
 
 .by {

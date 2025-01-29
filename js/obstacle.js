@@ -15,19 +15,16 @@ class Obstacle {
       this.element.style.top = `${this.top}px`;
   
       this.gameScreen.appendChild(this.element);
-
       this.horizontalSpeed = 8;
     }
   
     updatePosition() {
-      
       this.element.style.left = `${this.left}px`;
       this.element.style.top = `${this.top}px`;
     }
   
     move() {
       this.left -= this.horizontalSpeed;
-
       if (this.left < -this.width) {
         this.left = this.gameScreen.offsetWidth;
       }
