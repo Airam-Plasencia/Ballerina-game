@@ -2,7 +2,7 @@ class Obstacle {
     constructor(gameScreen) {
       this.gameScreen = gameScreen;
       this.left = this.gameScreen.offsetWidth;
-      this.top = Math.floor(Math.random() * 400 + 170);
+      this.top = Math.floor(Math.random() * 600 + 70);
       this.width = 80;
       this.height = 80;
       this.element = document.createElement("img");
@@ -16,7 +16,7 @@ class Obstacle {
   
       this.gameScreen.appendChild(this.element);
 
-      this.horizontalSpeed = 7;
+      this.horizontalSpeed = 8;
     }
   
     updatePosition() {
